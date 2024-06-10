@@ -11,16 +11,16 @@ from difflib import SequenceMatcher
 
 st.header("Movies Recommendation System Using Machine Learning")
 
-with open('C:\\Users\\ADMIN\\OneDrive - Trường ĐH CNTT - University of Information Technology\\Máy tính\\DoAn\\DoAn\\artificates\\movie_list.pkl', 'rb') as file:
+with open('C:\\Users\\ADMIN\\OneDrive - Trường ĐH CNTT - University of Information Technology\\Máy tính\\Hệ khuyến nghị phim\\DoAn\\artificates\\movie_list.pkl', 'rb') as file:
     movies = pickle.load(file)
 
-with open('C:\\Users\\ADMIN\\OneDrive - Trường ĐH CNTT - University of Information Technology\\Máy tính\\DoAn\\DoAn\\artificates\\cosine_sim.pkl', 'rb') as file:
+with open('C:\\Users\\ADMIN\\OneDrive - Trường ĐH CNTT - University of Information Technology\\Máy tính\\Hệ khuyến nghị phim\\DoAn\\artificates\\cosine_sim.pkl', 'rb') as file:
     cosine_sim = pickle.load(file)
 
 def title_similarity(title1, title2):
     return SequenceMatcher(None, title1, title2).ratio()
 
-new_df = pd.read_csv('C:\\Users\\ADMIN\\OneDrive - Trường ĐH CNTT - University of Information Technology\\Máy tính\\DoAn\\DoAn\\movies_with_id.csv')
+new_df = pd.read_csv('C:\\Users\\ADMIN\\OneDrive - Trường ĐH CNTT - University of Information Technology\\Máy tính\\Hệ khuyến nghị phim\\DoAn\\movies_with_id.csv')
 
 
 def fetch_poster(movie_id):
