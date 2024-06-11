@@ -97,7 +97,6 @@ def get_recommendations(movie, n_recommendations=10):
     recommended_movies_duration = []
     recommended_movies_country = []
     recommended_movies_original_language = []
-    recommended_movies_box_office = []
     recommended_movies_certificate = []
     recommended_movies_writting_credits = []
 
@@ -134,13 +133,12 @@ def get_recommendations(movie, n_recommendations=10):
         recommended_movies_duration.append(movies.iloc[i].Duration)
         recommended_movies_country.append(movies.iloc[i].Country)
         recommended_movies_original_language.append(movies.iloc[i].Original_Language)
-        recommended_movies_box_office.append(movies.iloc[i]['Box Office'])
         recommended_movies_certificate.append(movies.iloc[i]['Certificate (MPAA)'])
         recommended_movies_writting_credits.append(movies.iloc[i].Writing_Credits)
 
     return (recommended_movies_name, recommended_movies_poster, recommended_movies_description, recommended_movies_category,
             recommended_movies_actors, recommended_movies_directors, recommended_movies_released_year, recommended_movies_ratings,
-            recommended_movies_duration, recommended_movies_country, recommended_movies_original_language, recommended_movies_box_office,
+            recommended_movies_duration, recommended_movies_country, recommended_movies_original_language,
             recommended_movies_certificate, recommended_movies_writting_credits)
 
 
@@ -152,7 +150,7 @@ selected_movie = st.selectbox(
 
 if st.button("Show Recommendation"):
     print(movies.columns)
-    recommended_movies_name, recommended_movies_poster, recommended_movies_description, recommended_movies_category, recommended_movies_actors, recommended_movies_directors, recommended_movies_released_year, recommended_movies_ratings, recommended_movies_duration, recommended_movies_country, recommended_movies_original_language, recommended_movies_box_office, recommended_movies_certificate, recommended_movies_writting_credits = get_recommendations(selected_movie)
+    recommended_movies_name, recommended_movies_poster, recommended_movies_description, recommended_movies_category, recommended_movies_actors, recommended_movies_directors, recommended_movies_released_year, recommended_movies_ratings, recommended_movies_duration, recommended_movies_country, recommended_movies_original_language, recommended_movies_certificate, recommended_movies_writting_credits = get_recommendations(selected_movie)
 
     # Hiển thị 3 phim trong một hàng
     num_movies = len(recommended_movies_name)
@@ -174,7 +172,6 @@ if st.button("Show Recommendation"):
                     st.write(f"**Duration:** {recommended_movies_duration[i+j]} minutes")
                     st.write(f"**Country:** {recommended_movies_country[i+j]}")
                     st.write(f"**Original Language:** {recommended_movies_original_language[i+j]}")
-                    st.write(f"**Box Office:** {recommended_movies_box_office[i+j]}")
                     st.write(f"**Certificate:** {recommended_movies_certificate[i+j]}")
                     st.write(f"**Writting Credits:** {recommended_movies_writting_credits[i+j]}")
         st.markdown("---")
