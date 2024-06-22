@@ -113,7 +113,7 @@ def get_recommendations(movie, n_recommendations=10):
     movie_sim_scores = [(i, title_similarity(movie, movies.iloc[i]['Movie_Name'])) for i in range(len(movies))]
     
     # Kết hợp điểm cosine similarity và điểm tương đồng của tên phim
-    combined_scores = [(i, 0.5 * sim_scores[i][1] + 0.5 * movie_sim_scores[i][1]) for i in range(len(movies))]
+    combined_scores = [(i, 0.7 * sim_scores[i][1] + 0.3 * movie_sim_scores[i][1]) for i in range(len(movies))]
     
     # Sắp xếp các phim dựa trên điểm số kết hợp
     combined_scores = sorted(combined_scores, key=lambda x: x[1], reverse=True)
